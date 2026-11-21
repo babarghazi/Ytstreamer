@@ -1,0 +1,17 @@
+{
+  "name": "hassan-studio-vercel",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.9.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "overrides": {
+    "zod": "4.6.7"
+  }
+}

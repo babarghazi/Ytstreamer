@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trim a local video and export it as a vertical clip in your browser.">
+  <title>Hassan Yt Streming Clipper</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./studio.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap brand"><img src="./assets/favicon.svg" alt="" width="36" height="36"> Hassan Yt Streming Clipper</div>
+  </header>
+  <main class="wrap">
+    <section class="intro">
+      <h1>Clip Studio</h1>
+      <p>Trim a video and export a 9:16 clip. Videos are edited in your browser. Save to private storage when you choose.</p>
+    </section>
+    <section class="workspace" aria-label="Video editor">
+      <div class="preview">
+        <video id="video" controls playsinline preload="metadata" poster="./assets/demo-hype.jpg" aria-label="Source video"></video>
+      </div>
+      <div class="controls">
+        <div class="source">
+          <label for="file">Choose a video</label>
+          <input id="file" type="file" accept="video/*">
+          <button type="button" id="demo">Load sample</button>
+        </div>
+        <fieldset id="trim" disabled>
+          <legend>Trim and export</legend>
+          <div class="times">
+            <label>Start (seconds)<input id="start" type="number" min="0" step="any" value="0" required></label>
+            <label>End (seconds)<input id="end" type="number" min="0" step="any" value="0" required></label>
+          </div>
+          <label for="layout">Vertical framing</label>
+          <select id="layout"><option value="fit">Fit whole video</option><option value="crop">Fill frame · center crop</option></select>
+          <div class="actions">
+            <button type="button" id="preview">Preview trim</button>
+            <button type="button" class="primary" id="export">Export clip</button>
+          </div>
+        </fieldset>
+        <p id="status" role="status" aria-live="polite">Choose a local video or load the sample. Exports run in real time and can be up to 60 seconds.</p>
+        <a id="download" class="download" hidden>Download clip</a>
+      </div>
+    </section>
+    <details class="storage">
+      <summary>Private cloud storage</summary>
+      <p>Save a source video or clip to the Vercel Blob store linked to this project.</p>
+      <label for="cloud-key">Storage key</label>
+      <input id="cloud-key" type="password" autocomplete="off">
+      <div class="actions">
+        <button type="button" id="save-source">Save source video</button>
+        <button type="button" id="save-clip">Save exported clip</button>
+      </div>
+      <p id="cloud-status" role="status"></p>
+    </details>
+    <p class="note">For automatic YouTube recording, Gemini highlights, and publishing, use the server-backed Studio.</p>
+  </main>
+</body>
+</html>
